@@ -40,10 +40,18 @@ add_custom_command(
 # Include generated *.pb.h files
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
-add_executable(client "client/client.cpp"
-    ${hw_proto_srcs}
-    ${hw_grpc_srcs})
-target_link_libraries(client
+message(WARNING ${hw_proto_srcs})
+message(WARNING ${hw_grpc_srcs})
+message(WARNING ${CMAKE_CURRENT_BINARY_DIR})
+
+add_library(grpc_3d_objects_library "client/object_detection_client.cpp" ${hw_proto_srcs} ${hw_grpc_srcs})
+
+target_link_libraries(grpc_3d_objects_library
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
     ${_PROTOBUF_LIBPROTOBUF})
+
+add_executable(grpc_3d_objects_client "client/client.cpp")
+
+target_link_libraries(grpc_3d_objects_client
+    grpc_3d_objects_library)
