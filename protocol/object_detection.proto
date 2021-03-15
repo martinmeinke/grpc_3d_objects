@@ -25,6 +25,8 @@ message Object {
     required float l = 7;
     required float w = 8;
     required float h = 9;
+    required float confidence = 10;
+    required string classification = 11;
 }
 
 message Objects {

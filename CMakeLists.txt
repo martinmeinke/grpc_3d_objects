@@ -51,6 +51,8 @@ target_link_libraries(grpc_3d_objects_library
     ${_GRPC_GRPCPP}
     ${_PROTOBUF_LIBPROTOBUF})
 
+target_compile_options(grpc_3d_objects_library PUBLIC "-fPIC")
+
 add_executable(grpc_3d_objects_client "client/client.cpp")
 
 target_link_libraries(grpc_3d_objects_client

@@ -12,31 +12,27 @@
 using grpc::ClientContext;
 using grpc::Status;
 
-class ObjectDetectionClient
-{
+class ObjectDetectionClient {
 public:
-    ObjectDetectionClient(std::string server_address)
-        : stub_(ObjectDetection::NewStub(grpc::CreateChannel(server_address, grpc::InsecureChannelCredentials()))) {}
+  ObjectDetectionClient(std::string server_address)
+      : stub_(ObjectDetection::NewStub(grpc::CreateChannel(
+            server_address, grpc::InsecureChannelCredentials()))) {}
 
-    std::string DetectObjects(Points &request)
-    {
-        Objects reply;
-        ClientContext context;
+  Objects DetectObjects(Points &request) {
+    Objects reply;
+    ClientContext context;
 
-        // Here we can use the stub's newly available method we just added.
-        Status status = stub_->DetectObjects(&context, request, &reply);
-        if (status.ok())
-        {
-            return std::to_string(reply.objects()[0].x());
-        }
-        else
-        {
-            std::cout << status.error_code() << ": " << status.error_message()
-                      << std::endl;
-            return "RPC failed";
-        }
+    // Here we can use the stub's newly available method we just added.
+    Status status = stub_->DetectObjects(&context, request, &reply);
+    if (status.ok()) {
+      return reply;
+    } else {
+      std::cout << status.error_code() << ": " << status.error_message()
+                << std::endl;
+      return Objects();
     }
+  }
 
 private:
-    std::unique_ptr<ObjectDetection::Stub> stub_;
+  std::unique_ptr<ObjectDetection::Stub> stub_;
 };

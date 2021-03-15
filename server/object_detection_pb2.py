@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x16object_detection.proto\";\n\x05Point\x12\t\n\x01x\x18\x01 \x02(\x02\x12\t\n\x01y\x18\x02 \x02(\x02\x12\t\n\x01z\x18\x03 \x02(\x02\x12\x11\n\tintensity\x18\x04 \x02(\x02\" \n\x06Points\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"t\n\x06Object\x12\t\n\x01x\x18\x01 \x02(\x02\x12\t\n\x01y\x18\x02 \x02(\x02\x12\t\n\x01z\x18\x03 \x02(\x02\x12\x0c\n\x04roll\x18\x04 \x02(\x02\x12\r\n\x05pitch\x18\x05 \x02(\x02\x12\x0b\n\x03yaw\x18\x06 \x02(\x02\x12\t\n\x01l\x18\x07 \x02(\x02\x12\t\n\x01w\x18\x08 \x02(\x02\x12\t\n\x01h\x18\t \x02(\x02\"#\n\x07Objects\x12\x18\n\x07objects\x18\x01 \x03(\x0b\x32\x07.Object27\n\x0fObjectDetection\x12$\n\rDetectObjects\x12\x07.Points\x1a\x08.Objects\"\x00'
+  serialized_pb=b'\n\x16object_detection.proto\";\n\x05Point\x12\t\n\x01x\x18\x01 \x02(\x02\x12\t\n\x01y\x18\x02 \x02(\x02\x12\t\n\x01z\x18\x03 \x02(\x02\x12\x11\n\tintensity\x18\x04 \x02(\x02\" \n\x06Points\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"\xa0\x01\n\x06Object\x12\t\n\x01x\x18\x01 \x02(\x02\x12\t\n\x01y\x18\x02 \x02(\x02\x12\t\n\x01z\x18\x03 \x02(\x02\x12\x0c\n\x04roll\x18\x04 \x02(\x02\x12\r\n\x05pitch\x18\x05 \x02(\x02\x12\x0b\n\x03yaw\x18\x06 \x02(\x02\x12\t\n\x01l\x18\x07 \x02(\x02\x12\t\n\x01w\x18\x08 \x02(\x02\x12\t\n\x01h\x18\t \x02(\x02\x12\x12\n\nconfidence\x18\n \x02(\x02\x12\x16\n\x0e\x63lassification\x18\x0b \x02(\t\"#\n\x07Objects\x12\x18\n\x07objects\x18\x01 \x03(\x0b\x32\x07.Object27\n\x0fObjectDetection\x12$\n\rDetectObjects\x12\x07.Points\x1a\x08.Objects\"\x00'
 )
 
 
@@ -181,6 +181,20 @@ _OBJECT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='confidence', full_name='Object.confidence', index=9,
+      number=10, type=2, cpp_type=6, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='classification', full_name='Object.classification', index=10,
+      number=11, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -193,8 +207,8 @@ _OBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=121,
-  serialized_end=237,
+  serialized_start=122,
+  serialized_end=282,
 )
 
 
@@ -225,8 +239,8 @@ _OBJECTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=239,
-  serialized_end=274,
+  serialized_start=284,
+  serialized_end=319,
 )
 
 _POINTS.fields_by_name['points'].message_type = _POINT
@@ -274,8 +288,8 @@ _OBJECTDETECTION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=276,
-  serialized_end=331,
+  serialized_start=321,
+  serialized_end=376,
   methods=[
   _descriptor.MethodDescriptor(
     name='DetectObjects',
