@@ -7,7 +7,7 @@
 #include <grpcpp/create_channel.h>
 #include <grpcpp/security/credentials.h>
 
-#include "object_detection.grpc.pb.h"
+#include "grpc_3d_objects/object_detection.grpc.pb.h"
 
 using grpc::ClientContext;
 using grpc::Status;

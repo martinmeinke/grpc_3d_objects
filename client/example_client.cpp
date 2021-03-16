@@ -1,4 +1,4 @@
-#include "include/object_detection_client.h"
+#include "grpc_3d_objects/object_detection_client.h"
 
 int main(int argc, char **argv) {
   Points request;
